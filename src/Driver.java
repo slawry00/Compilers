@@ -8,11 +8,12 @@ import java.io.*;
 public class Driver {
     public static void main(String[] args) throws Exception {
 
-        String fileName = args[0]; // get filename from cmd line
+        String in_file = args[0]; // get filename from cmd line
+        CharStream in_stream = fromFileName(in_file) // turn into an antlr CharStream
 // this is a test
         try {
             // read in file for LittleLexer class ----
-//            LittleLexer lexer = new LittleLexer(File.(fileName));
+            //LittleLexer lexer = new LittleLexer(File.(fileName));
 
             // create list of tokens
 //            List list
@@ -34,7 +35,6 @@ public class Driver {
             e.printStackTrace();
         }
     }
-
     // output to output.out
     public static void FileWriter(String content) throws IOException {
         //Matt's commnet :
