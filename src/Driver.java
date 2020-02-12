@@ -9,7 +9,7 @@ public class Driver {
     public static void main(String[] args) throws Exception {
 
         String fileName = args[0]; // get filename from cmd line
-
+// this is a test
         try {
             // read in file for LittleLexer class ----
 //            LittleLexer lexer = new LittleLexer(File.(fileName));
@@ -37,7 +37,7 @@ public class Driver {
 
     // output to output.out
     public static void FileWriter(String content) throws IOException {
-
+        //Matt's commnet :
         BufferedWriter writer = new BufferedWriter(new FileWriter("output.out", true));
         writer.write(content);
         writer.close();
