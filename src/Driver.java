@@ -1,22 +1,45 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 
-public class Driver extends LittleBaseListener {
+import org.antlr.v4.runtime.*;
+import java.util.*;
+import java.io.*;
+
+
+public class Driver {
     public static void main(String[] args) throws Exception {
 
-        StringBuilder file = new StringBuilder();
+        String fileName = args[0]; // get filename from cmd line
 
-        try (BufferedReader br = new BufferedReader(
-                new FileReader("output.out"/* args[0] */))) {
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null) {
-                file.append(sCurrentLine + "\n");
+        try {
+            // read in file for LittleLexer class ----
+//            LittleLexer lexer = new LittleLexer(File.(fileName));
+
+            // create list of tokens
+//            List list
+
+            // Use lexer.getVocabulary();
+
+            // Print out tokens in list
+            for (int i = 0; i < tokens; i++) {
+                // implement this to print out the name of the token
+//                String currentToken = lexer.getVocabulary.getSymbolicName();
+                // print name of token
+                System.out.println("Token Type: " + currentTokenName);
+                // and print value of token
+                System.out.println("Value: " + t.getValue());
+
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String tokens = file.toString();
+    }
+
+    // output to output.out
+    public static void FileWriter(String content) throws IOException {
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("output.out", true));
+        writer.write(content);
+        writer.close();
     }
 }
