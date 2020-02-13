@@ -10,9 +10,11 @@ public class Driver {
 
 //        String in_file = args[0]; // get filename from cmd line
         System.out.println("asdf");
-        /*
+
         try {
-            CharStream in_stream = fromFileName(in_file);// turn into an antlr CharStream
+            // just use this deprecated class, unless you can find another class that implements CharStream
+            // CharStream is an interface...
+            ANTLRFileStream in_stream = fromFileName(in_file);// turn into an antlr CharStream
             LittleLexer lexer = new LittleLexer(in_stream);
 
             CommonTokenStream tok_s = new CommonTokenStream(lexer);
@@ -32,10 +34,9 @@ public class Driver {
 
     // output to output.out
     public static void FileWriter(String content) throws IOException {
-        //Matt's commnet :
         BufferedWriter writer = new BufferedWriter(new FileWriter("output.out", true));
         writer.write(content);
         writer.close();
-    */
+
     }
 }
