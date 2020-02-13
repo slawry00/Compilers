@@ -1,6 +1,6 @@
 
 
-import org.antlr.v4.runtime.*;
+//import org.antlr.v4.runtime.*;
 import java.util.*;
 import java.io.*;
 
@@ -16,12 +16,15 @@ public class Driver {
             CharStream in_stream = fromFileName(in_file);// turn into an antlr CharStream
             LittleLexer lexer = new LittleLexer(in_stream);
 
-            CommonTokenStream toks = new CommonTokenStream(lexer)
-            List<String> tokenList = new ArrayList<String>();
-            While(toks.nextTokenChannel != NULL){
-                tokenList.add(toks.nextTokenChannel.toString());
-//                System.out.println("Token #" + " added: '" + tokenList + "'");
-            }//end while toks.next
+            CommonTokenStream tok_s = new CommonTokenStream(lexer);
+            List<String> tok_list = tok_s.getAllTokens()
+
+            while(tok_list.hasNext())
+            {
+                cur_tok = tok_list.next()
+//              System.out.println("Token Type: " + cur_tok.getType())
+                System.out.println("Value: " + cur_tok.getText())
+            }
 
             // Use lexer.getVocabulary();
 
