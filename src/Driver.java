@@ -33,7 +33,6 @@ public class Driver {
                     System.out.println("Value: " + tokenList.get(i).getText());
 
                     myWriter.write("Token Type: " + symbol +"\n" + "Value: " + tokenList.get(i).getText() +"\n");
-                    myWriter.flush();
                 }
             }
             myWriter.close();
