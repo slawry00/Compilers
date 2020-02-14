@@ -26,6 +26,7 @@ public class Driver {
                 int type = tokenList.get(i).getType();
 
                 // EOF is 0, so exclude it from output
+                //removed appends
                 if (type > 0) {
                     String symbol = vocab.getSymbolicName(type);
                     System.out.println("Token Type: " + symbol);
