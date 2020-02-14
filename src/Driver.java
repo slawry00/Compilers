@@ -30,10 +30,12 @@ public class Driver {
                     String symbol = vocab.getSymbolicName(type);
                     System.out.println("Token Type: " + symbol);
                     System.out.println("Value: " + tokenList.get(i).getText());
-                    myWriter.append("Token Type: " + symbol);
-                    myWriter.append("Value: " + tokenList.get(i).getText());
+
+                    myWriter.write("Token Type: " + symbol +"\n" + "Value: " + tokenList.get(i).getText() +"\n");
+                    myWriter.flush();
                 }
             }
+            myWriter.close();
 
         } catch (IOException e) {
             e.printStackTrace();
