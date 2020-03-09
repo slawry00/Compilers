@@ -6,42 +6,43 @@ import java.util.*;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class Driver {
+public class Driver
+{
 
-    public static void main(String[] args) throws Exception {
-        // Number of tests you want to use, MUST FOLLOW NAMING SCHEME "test#.micro" and will output to "test#.out
-        // must start at 1.
-        int testCases = 20;
-        for(int i =1; i <= testCases; i++) {
+    public static void main(String[] args) throws Exception
+    {
 
+        String fileName = "inputs/test8.micro" ;    // set later to args[0] and setup in bash script
+        String outputName = "outputs/test8.out";     // set output args[0] + ".out";
+        FileWriter myWriter = new FileWriter(outputName);
 
-            String fileName = "inputs/test" + i + ".micro";      // set later to args[0] and setup in bash script
-            String outputName = "outputs/test"+ i + ".out";     // set output args[0] + ".out";
-            FileWriter myWriter = new FileWriter(outputName);
-
-            try {
-                // create the grammar from CharStream interface
-                LittleLexer grammar = new LittleLexer(CharStreams.fromFileName(fileName));
-                // create the token stream and set channel to 0 to pull tokens instead of default channel
-                // (default doesn't pull tokens correctly)
-                CommonTokenStream tokens = new CommonTokenStream(grammar, 0);
+        try
+        {
+            // create the grammar from CharStream interface
+            LittleLexer grammar = new LittleLexer(CharStreams.fromFileName(fileName));
+            // create the token stream and set channel to 0 to pull tokens instead of default channel
+            // (default doesn't pull tokens correctly)
+            CommonTokenStream tokens = new CommonTokenStream(grammar, 0);
 //            tokens.getNumberOfOnChannelTokens();        //iterates through and counts EOF once
-                // create list of tokens and utilize the Vocabulary interface to return string associated with token
-                List<Token> tokenList = tokens.getTokens();
-                Vocabulary vocab = grammar.getVocabulary();
+            // create list of tokens and utilize the Vocabulary interface to return string associated with token
+            List<Token> tokenList = tokens.getTokens();
+            Vocabulary vocab = grammar.getVocabulary();
 
-                int errors;
-                LittleParser myParser = new LittleParser(tokens);
-                ParseTree tree = myParser.start();
+            int errors;
+            LittleParser myParser = new LittleParser(tokens);
+            ParseTree tree = myParser.start();
 //            myParser.getInputStream(tokens);
-                errors = myParser.getNumberOfSyntaxErrors();
-                if (errors > 0) {
-                    System.out.println("Not accepted");
-                    myWriter.write("Not accepted");
-                } else {
-                    System.out.println("Accepted");
-                    myWriter.write("Accepted");
-                }
+            errors = myParser.getNumberOfSyntaxErrors();
+            if (errors > 0)
+            {
+                System.out.println("Not accepted");
+                myWriter.write("Not accepted");
+            }
+            else
+            {
+                System.out.println("Accepted");
+                myWriter.write("Accepted");
+            }
 
 
 //            for(int i=0; i < tokenList.size(); i++){
@@ -59,12 +60,13 @@ public class Driver {
 //                }
 //            }
 
-                myWriter.close();
+            myWriter.close();
 
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 }
